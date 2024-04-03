@@ -13,14 +13,7 @@ try
     var sqsClient = new AmazonSQSClient();
 
     var queueDetails = await sqsClient.GetQueueUrlAsync(queueName);
-    OrderCreatedEvent @event = new OrderCreatedEvent()
-    {
-        Date = DateTime.Now,
-        Details = $"OrderId:{Guid.NewGuid()}",
-        Id = 1,
-        UserName = "Anish"
-    };
-    await sqsClient.SendMessageAsync(queueDetails.QueueUrl, JsonSerializer.Serialize(@event));
+    await SendMessage(sqsClient, queueDetails);
     // await ListAllQueues(sqsClient);
 }
 catch (Exception e)
@@ -39,4 +32,16 @@ async Task ListAllQueues(AmazonSQSClient amazonSqsClient)
         {
             MaxResults = 5
         });
+}
+
+async Task SendMessage(AmazonSQSClient sqsClient1, GetQueueUrlResponse getQueueUrlResponse)
+{
+    OrderCreatedEvent @event = new OrderCreatedEvent()
+    {
+        Date = DateTime.Now,
+        Details = $"OrderId:{Guid.NewGuid()}",
+        Id = 1,
+        UserName = "Anish"
+    };
+    await sqsClient1.SendMessageAsync(getQueueUrlResponse.QueueUrl, JsonSerializer.Serialize(@event));
 }
