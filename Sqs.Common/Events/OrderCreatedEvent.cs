@@ -1,4 +1,4 @@
-﻿namespace SQS.Publisher.Events;
+﻿namespace SQS.Common.Events;
 
 public class OrderCreatedEvent
 {
