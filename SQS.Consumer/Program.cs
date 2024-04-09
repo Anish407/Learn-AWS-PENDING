@@ -11,7 +11,11 @@ CancellationTokenSource cancellationToken = new CancellationTokenSource();
 
 ReceiveMessageRequest requestMessage = new ReceiveMessageRequest()
 {
-    QueueUrl = queueDetails.QueueUrl
+    QueueUrl = queueDetails.QueueUrl,
+    // specify the system attributes names that are needed when consuming the request
+    AttributeNames = ["All"],
+    MessageAttributeNames = ["All"]
+
 };
 
 while (!cancellationToken.IsCancellationRequested)
