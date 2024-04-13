@@ -2,13 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQS", "SQS", "{8FB4CDDB-D899-4107-AC11-EEB33CC11C15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQS.ConsoleApp.Publisher", "SQS.ConsoleApp.Publisher\SQS.ConsoleApp.Publisher.csproj", "{BC5AEF71-1987-4DD2-AA75-D9B6EF00D447}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqs\SQS.ConsoleApp.Publisher", "Sqs\SQS.ConsoleApp.Publisher\SQS.ConsoleApp.Publisher.csproj", "{BC5AEF71-1987-4DD2-AA75-D9B6EF00D447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQS.ConsoleApp.Consumer", "SQS.ConsoleApp.Consumer\SQS.ConsoleApp.Consumer.csproj", "{A511EFCB-945F-4F95-9FF2-20213C2AA1BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqs\SQS.ConsoleApp.Consumer", "Sqs\SQS.ConsoleApp.Consumer\SQS.ConsoleApp.Consumer.csproj", "{A511EFCB-945F-4F95-9FF2-20213C2AA1BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqs.Common", "Sqs.Common\Sqs.Common.csproj", "{7D97CBF2-2F93-421B-BFF8-4EA09059E6D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqs\Sqs.Common", "Sqs\Sqs.Common\Sqs.Common.csproj", "{7D97CBF2-2F93-421B-BFF8-4EA09059E6D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqsOperations.Api", "SqsOperations.Api\SqsOperations.Api.csproj", "{5559A3EB-55D8-45BE-B281-F0D142C4018D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqs\SqsOperations.Api", "Sqs\SqsOperations.Api\SqsOperations.Api.csproj", "{5559A3EB-55D8-45BE-B281-F0D142C4018D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
