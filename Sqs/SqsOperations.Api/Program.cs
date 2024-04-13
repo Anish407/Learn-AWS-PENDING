@@ -1,4 +1,5 @@
 using Amazon.SQS;
+using Sqs.Common.Messaging;
 using SqsOperations.Api.Messaging;
 using SqsOperations.Api.SqsPublisher;
 

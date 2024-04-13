@@ -13,4 +13,8 @@
         <PackageReference Include="AWSSDK.SQS" Version="3.7.300.67" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Sqs.Common\Sqs.Common.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace SqsOperations.Api.Messaging;
+﻿namespace Sqs.Common.Messaging;
 
 public class QueueSettings()
 {

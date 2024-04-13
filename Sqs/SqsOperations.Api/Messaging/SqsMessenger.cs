@@ -2,6 +2,8 @@
 using Amazon.SQS;
 using Amazon.SQS.Model;
 using Microsoft.Extensions.Options;
+using Sqs.Common.Messaging;
+using static Sqs.Common.Constants;
 
 namespace SqsOperations.Api.Messaging;
 
@@ -21,7 +23,7 @@ public class SqsMessenger(IAmazonSQS sqs, ILogger<SqsMessenger> logger, IOptions
                 MessageAttributes = new Dictionary<string, MessageAttributeValue>
                 {
                     {
-                        "MessageType", new MessageAttributeValue()
+                        MessageTypeAttributeName, new MessageAttributeValue()
                         {
                             DataType = "String",
                             StringValue = typeof(TMessage).Name
