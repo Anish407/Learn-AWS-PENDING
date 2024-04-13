@@ -8,15 +8,15 @@ using static Sqs.Common.Constants;
 
 namespace Sqs.Api.Consumer.BackgroundService;
 
-public class QueueConsumerService : Microsoft.Extensions.Hosting.BackgroundService
+public class QueueConsumerServiceV1 : Microsoft.Extensions.Hosting.BackgroundService
 {
     private readonly IAmazonSQS _sqs;
     private readonly IOptions<QueueSettings> _queueSettings;
-    private readonly ILogger<QueueConsumerService> _logger;
+    private readonly ILogger<QueueConsumerServiceV1> _logger;
     private string queueName;
 
-    public QueueConsumerService(IAmazonSQS sqs, IOptions<QueueSettings> queueSettings,
-        ILogger<QueueConsumerService> logger)
+    public QueueConsumerServiceV1(IAmazonSQS sqs, IOptions<QueueSettings> queueSettings,
+        ILogger<QueueConsumerServiceV1> logger)
     {
         _sqs = sqs;
         _queueSettings = queueSettings;

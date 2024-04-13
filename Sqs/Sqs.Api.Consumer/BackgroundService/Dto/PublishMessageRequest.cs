@@ -1,3 +1,6 @@
-﻿namespace Sqs.Api.Consumer.BackgroundService.Dto;
+﻿using MediatR;
+using Sqs.Api.Consumer.MessageHandlers;
 
-public record PublishMessageRequest(int Id, string ProductName, int Quantity);
+namespace Sqs.Api.Consumer.BackgroundService.Dto;
+
+public record PublishMessageRequest(int Id, string ProductName, int Quantity) : IRequest, IMessage;
