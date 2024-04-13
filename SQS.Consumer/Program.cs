@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Text.Json;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 
@@ -17,6 +18,7 @@ ReceiveMessageRequest requestMessage = new ReceiveMessageRequest()
     MessageAttributeNames = ["All"]
 
 };
+
 
 while (!cancellationToken.IsCancellationRequested)
 {
