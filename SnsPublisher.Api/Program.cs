@@ -10,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+// builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
+builder.Services.AddAWSService<IAmazonSimpleNotificationService>(); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,7 +46,12 @@ static async Task<Results<Ok<string>, BadRequest<string>>> PublishMessageHandler
         return TypedResults.BadRequest(e.Message);
     }
 };
-
+// Add this to app settings if we need to specify the region separately,
+//  
+//  "AWS": {
+//    "Profile": "default",
+//    "Region": "ap-south-1"
+//  }
 
 static async Task<string> GetTopicArn(IAmazonSimpleNotificationService amazonSimpleNotificationService, string s)
 {
