@@ -4,7 +4,7 @@ using System.Text.Json;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 
-string queueName = "Customer";
+string queueName = "Customers";
 AmazonSQSClient sqsClient = new AmazonSQSClient();
 
 GetQueueUrlResponse queueDetails = await sqsClient.GetQueueUrlAsync(queueName);
