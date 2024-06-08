@@ -1,0 +1,6 @@
+@LearnAws.DynamoDb_HostAddress = http://localhost:5169
+
+GET {{LearnAws.DynamoDb_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
