@@ -26,6 +26,8 @@ public class CustomersRepository:DynamoDBRepository<Customers>,ICustomersReposit
             // This is an index that is created on the table,
             // An index is created on a field that is not the PK 
             // Dynamo will create a replica and maintain it separately 
+            // Now everytime we write a document to DynamoDb, We are actually writing it into the 
+            // table and the index. So it doubles the cost 
             IndexName = "MyEmailIndex",
             KeyConditionExpression = "email = :v_email",
             ExpressionAttributeValues = new Dictionary<string, AttributeValue>
