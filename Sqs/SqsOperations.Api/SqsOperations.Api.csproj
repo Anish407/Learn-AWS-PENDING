@@ -8,13 +8,9 @@
 
     <ItemGroup>
         <PackageReference Include="MediatR" Version="12.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
         <PackageReference Include="AWSSDK.SQS" Version="3.7.300.67" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Sqs.Common\Sqs.Common.csproj" />
     </ItemGroup>
 
 </Project>

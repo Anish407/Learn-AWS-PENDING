@@ -36,6 +36,38 @@ public abstract class DynamoDBRepository<T> : IRepository<T> where T : BaseEntit
         var itemJson = Document.FromAttributeMap(response.Item).ToJson();
         return JsonSerializer.Deserialize<T>(itemJson);
     }
+    
+    public async Task UpdateItemWithConditionAsync(T item, DateTime conditionDate)
+    {
+        var itemAsJson = JsonSerializer.Serialize(item);
+        var itemAsAttributes = Document.FromJson(itemAsJson).ToAttributeMap();
+
+        //CreatedAt is the column name and :conditionDate is the parameter passed into 
+        // the condition
+        var conditionExpression = "CreatedAt >= :conditionDate";
+        var expressionAttributeValues = new Dictionary<string, AttributeValue>
+        {
+            { ":conditionDate", new AttributeValue { S = conditionDate.ToString("o") } }
+        };
+
+        var putItemRequest = new PutItemRequest
+        {
+            TableName = _tableName,
+            Item = itemAsAttributes,
+            ConditionExpression = conditionExpression,
+            ExpressionAttributeValues = expressionAttributeValues
+        };
+
+        try
+        {
+           var item = await _dynamoDBClient.PutItemAsync(putItemRequest);
+        }
+        catch (ConditionalCheckFailedException)
+        {
+            // Handle the case where the condition expression was not met
+            Console.WriteLine("Condition check failed. Item not created.");
+        }
+    }
 
     public virtual async Task<bool> CreateItemAsync(T item)
     {

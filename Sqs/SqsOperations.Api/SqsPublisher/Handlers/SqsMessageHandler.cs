@@ -8,8 +8,12 @@ public class SqsMessageHandler(IMessenger messenger) : IRequestHandler<PublishMe
 {
     public async Task Handle(PublishMessageRequest request, CancellationToken cancellationToken)
     {
-       if(IsValidRequest());
-       await messenger.PublishMessage(request);
+        if (!IsValidRequest())
+        {
+            throw new Exception("Invalid request");
+        }
+
+        await messenger.PublishMessage(request);
     }
 
     private bool IsValidRequest()
