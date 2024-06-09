@@ -37,9 +37,9 @@ public abstract class DynamoDBRepository<T> : IRepository<T> where T : BaseEntit
         return JsonSerializer.Deserialize<T>(itemJson);
     }
     
-    public async Task UpdateItemWithConditionAsync(T item, DateTime conditionDate)
+    public async Task UpdateItemWithConditionAsync(T data, DateTime conditionDate)
     {
-        var itemAsJson = JsonSerializer.Serialize(item);
+        var itemAsJson = JsonSerializer.Serialize(data);
         var itemAsAttributes = Document.FromJson(itemAsJson).ToAttributeMap();
 
         //CreatedAt is the column name and :conditionDate is the parameter passed into 
@@ -52,7 +52,7 @@ public abstract class DynamoDBRepository<T> : IRepository<T> where T : BaseEntit
 
         var putItemRequest = new PutItemRequest
         {
-            TableName = _tableName,
+            TableName = Tablename,
             Item = itemAsAttributes,
             ConditionExpression = conditionExpression,
             ExpressionAttributeValues = expressionAttributeValues
@@ -60,7 +60,7 @@ public abstract class DynamoDBRepository<T> : IRepository<T> where T : BaseEntit
 
         try
         {
-           var item = await _dynamoDBClient.PutItemAsync(putItemRequest);
+           var item = await _dynamoDbClient.PutItemAsync(putItemRequest);
         }
         catch (ConditionalCheckFailedException)
         {
