@@ -39,7 +39,7 @@ public class SqsMessenger(IAmazonSQS sqs, ILogger<SqsMessenger> logger, IOptions
         }
     }
 }
-
+ 
 public interface IMessenger
 {
 
