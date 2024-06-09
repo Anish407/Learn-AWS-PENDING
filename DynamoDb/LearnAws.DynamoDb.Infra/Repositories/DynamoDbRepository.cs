@@ -36,6 +36,8 @@ public abstract class DynamoDBRepository<T> : IRepository<T> where T : BaseEntit
         var itemJson = Document.FromAttributeMap(response.Item).ToJson();
         return JsonSerializer.Deserialize<T>(itemJson);
     }
+
+    
     
     public async Task UpdateItemWithConditionAsync(T data, DateTime conditionDate)
     {
@@ -123,4 +125,6 @@ public abstract class DynamoDBRepository<T> : IRepository<T> where T : BaseEntit
 
         await _dynamoDbClient.DeleteItemAsync(deleteItemRequest);
     }
+
+  
 }

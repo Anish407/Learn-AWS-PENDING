@@ -32,7 +32,7 @@ public class SqsMessenger(IAmazonSQS sqs, ILogger<SqsMessenger> logger, IOptions
                 }
             });
         }
-        catch (Exception e)
+        catch (Exception e) 
         {
             logger.LogInformation("Error while publishing message to sqs ,exceptionMessage:{exception}",e);
             throw;

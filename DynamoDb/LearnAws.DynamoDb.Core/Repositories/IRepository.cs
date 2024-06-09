@@ -1,4 +1,6 @@
-﻿namespace LearnAws.DynamoDb.Core.Repositories;
+﻿using LearnAws.DynamoDb.Core.Entities;
+
+namespace LearnAws.DynamoDb.Core.Repositories;
 
 public interface IRepository<T>
 {
@@ -6,4 +8,5 @@ public interface IRepository<T>
     Task<bool> CreateItemAsync(T item);
     Task<bool> UpdateItemAsync(T item);
     Task DeleteItemAsync(T item);
+ 
 }
