@@ -25,24 +25,20 @@ async Task DownloadFileAsync()
             // Extract just the file name from the key
             string fileName = Path.GetFileName(response.Key);
 
-            // Output the file name (or use it in your logic)
             Console.WriteLine($"File name extracted: {fileName}");
 
-            // Define the download folder path
             string currentDirectory = Directory.GetCurrentDirectory();
             string downloadFolderPath = Path.Combine(currentDirectory, "downloads");
 
-            // Ensure the downloads directory exists
             if (!Directory.Exists(downloadFolderPath))
             {
                 Directory.CreateDirectory(downloadFolderPath);
             }
 
-            // Set the full file path in the downloads folder
             string filePath = Path.Combine(downloadFolderPath, fileName);
 
-            using (Stream responseStream = response.ResponseStream)
-            using (FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            await using (Stream responseStream = response.ResponseStream)
+            await using (FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
                 await responseStream.CopyToAsync(fileStream);
             }
