@@ -36,4 +36,7 @@
      - One last step is to attach the debugger to the lambda process
      - ![image](https://github.com/user-attachments/assets/f4d3ea7e-19bb-40b3-a629-789ecc0cfecf)
 
-    
+   - To debug lambdas locally we need to create a new configuration
+  
+   - Create the configuration with the following parameters
+  
