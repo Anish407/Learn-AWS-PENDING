@@ -33,3 +33,5 @@
      - Open Cmd and navigate to the folder that contains the function and run the below command
      - dotnet lambda-test-tool-8.0 (I am using .net 8, so it will try to find the artifacts after building the project in the bin/Debug/{dotnetversion})
      - **We get this error, if an incorrect version of dotnet is specified: Unknown error occurred causing process exit: Could not find a part of the path 'D:\Learn AWs\Learn.AWS\SimpleLambda\src\SimpleLambda\bin\Debug\net6.0'**
+     - One last step is to attach the debugger to the lambda process 
+    
