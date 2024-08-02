@@ -36,7 +36,13 @@
      - One last step is to attach the debugger to the lambda process
      - ![image](https://github.com/user-attachments/assets/f4d3ea7e-19bb-40b3-a629-789ecc0cfecf)
 
-   - To debug lambdas locally we need to create a new configuration
-  
-   - Create the configuration with the following parameters
+   - To debug lambdas locally we need to create a new configuration.  Create the configuration with the following parameters
+   - ![WhatsApp Image 2024-08-02 at 20 58 55_0496d8de](https://github.com/user-attachments/assets/880c2c0e-88b5-497c-823d-9c56f65ba99e)
+   - Exe Path is where the dotnet lambda test tool resides on our machine
+   - ![WhatsApp Image 2024-08-02 at 20 57 21_668281fb](https://github.com/user-attachments/assets/dbd2bf10-79c5-45d2-97b9-35117ac2904f)
+
+   - Working directory is the path where the code for the lambda resides on our machine
+ 
+   -![image](https://github.com/user-attachments/assets/e3b06049-8103-42ca-b794-8d469767ad8d)
+
   
